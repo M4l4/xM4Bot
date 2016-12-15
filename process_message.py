@@ -1,9 +1,9 @@
 import re
-from time import sleep
-import functions as f
-from chat_actions import chat
+from time import sleep, localtime
 from config import CHAT_MSG, RATE
 from connect import connected, s
+from chat_actions import chat
+import functions as f
 
 
 def process_message(user, msg):
@@ -11,9 +11,8 @@ def process_message(user, msg):
         f.uptime()
     if msg[:2] == "!a":
         f.assist(msg[3:])
-    if not user == "xm4bot" and msg == "Ogod. Here we go, taking all the kills then doing" \
-                                       " nothing but dw \"he\'ll carry\"":
-        chat(msg)
+    if not user == "xm4bot" and msg in {"!Ogod", "!ogod"}:
+        chat("Can't have fun in this stream FeelsBadMan")
 
 
 def main_loop():
@@ -23,8 +22,8 @@ def main_loop():
             s.send("PONG :tmi.twitch.tv\r\n".encode("utf-8"))
         else:
             username = re.search(r"\w+", response).group(0)
-            message = CHAT_MSG.sub("", response)[:-2]
-            print(username + ": " + message)
+            message = CHAT_MSG.sub("", response).rstrip()
+            print("[{0[3]}:{0[4]}] {1}: {2}".format(localtime(), username, message))
             process_message(username, message)
         sleep(1 / RATE)
 

@@ -1,5 +1,5 @@
 import socket
-from config import *
+from config import HOST, PORT, PASS, NICK, CHAN
 
 try:
     s = socket.socket()
