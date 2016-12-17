@@ -1,6 +1,6 @@
 import re
 from time import sleep, localtime
-from config import CHAT_MSG, RATE
+from config import CHAT_MSG, RATE, TESTING
 from connect import connected, s
 from chat_actions import chat
 import functions as f
@@ -11,8 +11,10 @@ def process_message(user, msg):
         f.uptime()
     if msg[:2] == "!a":
         f.assist(msg[3:])
-    if not user == "xm4bot" and msg in {"!Ogod", "!ogod"}:
+    if msg in {"!Ogod", "!ogod"}:
         chat("Can't have fun in this stream FeelsBadMan")
+    if msg == "!seen":
+        f.a_main()
 
 
 def main_loop():

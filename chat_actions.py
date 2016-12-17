@@ -1,4 +1,4 @@
-from config import CHAN
+from config import CHAN, TESTING
 from connect import s as socket
 
 
@@ -9,6 +9,8 @@ def chat(msg):
     msg  -- the message to be sent
     """
     socket.send("PRIVMSG {} :{}\r\n".format(CHAN, msg).encode("utf-8"))
+    if TESTING:
+        socket.send("PRIVMSG {} :{}\r\n".format(CHAN, '/clear').encode("utf-8"))
 
 
 def ban(user):
