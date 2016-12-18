@@ -22,6 +22,15 @@ def ban(user):
     chat(".ban {}".format(user))
 
 
+def unban(user):
+    """
+    Ban a user from the current channel.
+    Keyword arguments:
+    user -- the user to be banned
+    """
+    chat(".unban {}".format(user))
+
+
 def timeout(user, secs=600):
     """
     Time out a user for a set period of time.
@@ -29,4 +38,4 @@ def timeout(user, secs=600):
     user -- the user to be timed out
     secs -- the length of the timeout in seconds (default 600)
     """
-    chat(".timeout {}".format(user, secs))
+    chat(".timeout {} {}".format(user, secs))

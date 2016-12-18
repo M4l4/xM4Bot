@@ -3,18 +3,25 @@ from time import sleep, localtime
 from config import CHAT_MSG, RATE, TESTING
 from connect import connected, s
 from chat_actions import chat
+from functions.global_vars import users
 import functions as f
 
 
 def process_message(user, msg):
     if msg == "!up":
         f.uptime()
-    if msg[:2] == "!a":
+    if msg.startswith("!a"):
         f.assist(msg[3:])
-    if msg in {"!Ogod", "!ogod"}:
+    if msg in ["!Ogod", "!ogod"]:
         chat("Can't have fun in this stream FeelsBadMan")
     if msg == "!seen":
         f.a_main()
+    if msg == "!sudoku":
+        f.sudoku(user)
+    if user in users['parents'] and msg == "!btk":
+        f.btk()
+    if user in users['parents'] and msg.startswith("!spank"):
+        f.spank(msg[7:])
 
 
 def main_loop():
