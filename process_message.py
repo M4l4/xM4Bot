@@ -10,18 +10,20 @@ import functions as f
 def process_message(user, msg):
     if msg == "!up":
         f.uptime()
-    if msg.startswith("!a"):
+    if msg.startswith("!a "):
         f.assist(msg[3:])
+    if msg.endswith("and now has 0 pandapoints"):
+        f.no_points()
     if msg in ["!Ogod", "!ogod"]:
         chat("Can't have fun in this stream FeelsBadMan")
     if msg == "!seen":
         f.a_main()
     if msg == "!sudoku":
         f.sudoku(user)
+    if msg == "!followage":
+        f.follow_age(user)
     if user in users['parents'] and msg == "!btk":
         f.btk()
-    if user in users['parents'] and msg.startswith("!spank"):
-        f.spank(msg[7:])
 
 
 def main_loop():

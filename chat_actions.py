@@ -8,9 +8,9 @@ def chat(msg):
     Keyword arguments:
     msg  -- the message to be sent
     """
-    socket.send("PRIVMSG {} :{}\r\n".format(CHAN, msg).encode("utf-8"))
+    socket.send("PRIVMSG #{} :{}\r\n".format(CHAN, msg).encode("utf-8"))
     if TESTING:
-        socket.send("PRIVMSG {} :{}\r\n".format(CHAN, '/clear').encode("utf-8"))
+        socket.send("PRIVMSG #{} :{}\r\n".format(CHAN, '/clear').encode("utf-8"))
 
 
 def ban(user):

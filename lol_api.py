@@ -32,7 +32,7 @@ region2 = dict(
 base = 'https://{region}.api.pvp.net/'
 
 
-def call(function: str, an_id: int, region: str = "oce"):
+def call_lol_api(function: str, an_id: int, region: str = "oce"):
     if function == 'current_game':
         url = (base + URLS[function]).format(
             region=region,
