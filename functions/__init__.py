@@ -5,3 +5,4 @@ from .btk import btk
 from .sudoku import sudoku
 from .follow_age import follow_age
 from .no_points import no_points
+from .teeto import teeto
