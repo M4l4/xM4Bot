@@ -46,6 +46,7 @@ def process_message(user, msg):
         return chatted
     except Exception as e:
         chat("I am dieing. Please tell M4. :(")
+        raise SystemExit
 
 
 def main_loop():
@@ -67,6 +68,7 @@ def main_loop():
             raise Exception
     except Exception as e:
         chat("I am dieing. Please tell M4. :(")
+        raise SystemExit
 
 if __name__ == "__main__":
     main_loop()

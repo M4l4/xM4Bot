@@ -10,3 +10,4 @@ try:
     connected = True
 except Exception as e:
     connected = False
+    raise SystemExit
