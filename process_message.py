@@ -46,6 +46,7 @@ def process_message(user, msg):
 
 
 def main_loop():
+    from chat_actions import chat
     chat("Hi! I'm alive :D")
     try:
         while connected:
@@ -62,7 +63,6 @@ def main_loop():
         else:
             raise SystemExit
     except Exception as e:
-        from chat_actions import chat
         chat("I am dieing. Please tell M4. :(")
 
 if __name__ == "__main__":
