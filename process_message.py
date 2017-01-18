@@ -46,6 +46,7 @@ def process_message(user, msg):
 
 
 def main_loop():
+    chat("Hi! I'm alive :D")
     while connected:
         chatted = False
         response = s.recv(1024).decode("utf-8")

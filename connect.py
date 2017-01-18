@@ -1,6 +1,5 @@
 import socket
 from config import HOST, PORT, PASS, NICK, CHAN
-from chat_actions import chat
 
 try:
     s = socket.socket()
@@ -9,7 +8,7 @@ try:
     s.send("NICK {}\r\n".format(NICK).encode("utf-8"))
     s.send("JOIN #{}\r\n".format(CHAN).encode("utf-8"))
     connected = True
-    chat("Hi! I'm alive :D")
 except Exception as e:
+    from chat_actions import chat
     chat("I am dieing. Please tell M4. :(")
     connected = False
