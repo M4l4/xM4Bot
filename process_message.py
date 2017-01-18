@@ -9,40 +9,43 @@ import functions as f
 
 
 def process_message(user, msg):
-    chatted = False
-    if msg == "!up":
-        f.uptime()
-        chatted = True
-    if msg.startswith("!a "):
-        f.assist(msg[3:])
-        chatted = True
-    if msg.endswith("and now has 0 pandapoints"):
-        f.no_points()
-        chatted = True
-    if msg in ["!Ogod", "!ogod"]:
-        chat("Can't have fun in this stream FeelsBadMan")
-        chatted = True
-    if msg == "!test":
-        chat("http://www.ricepuritytest.com/")
-        chatted = True
-    if msg == "!seen":
-        f.a_main()
-        chatted = True
-    if msg == "!sudoku":
-        f.sudoku(user)
-        chatted = True
-    if msg == "!followage":
-        f.follow_age(user)
-        chatted = True
-    if user in users['parents'] and msg == "!btk":
-        f.btk()
-        chatted = True
-    if user == "cancerious_teeto" and msg.startswith("!gamble "):
-        f.teeto()
-        chatted = True
-    if user == "xm4l4x" and msg == "!die":
-        raise SystemExit
-    return chatted
+    try:
+        chatted = False
+        if msg == "!up":
+            f.uptime()
+            chatted = True
+        if msg.startswith("!a "):
+            f.assist(msg[3:])
+            chatted = True
+        if msg.endswith("and now has 0 pandapoints"):
+            f.no_points()
+            chatted = True
+        if msg in ["!Ogod", "!ogod"]:
+            chat("Can't have fun in this stream FeelsBadMan")
+            chatted = True
+        if msg == "!test":
+            chat("http://www.ricepuritytest.com/")
+            chatted = True
+        if msg == "!seen":
+            f.a_main()
+            chatted = True
+        if msg == "!sudoku":
+            f.sudoku(user)
+            chatted = True
+        if msg == "!followage":
+            f.follow_age(user)
+            chatted = True
+        if user in users['parents'] and msg == "!btk":
+            f.btk()
+            chatted = True
+        if user == "cancerious_teeto" and msg.startswith("!gamble "):
+            f.teeto()
+            chatted = True
+        if user == "xm4l4x" and msg == "!die":
+            raise SystemExit
+        return chatted
+    except Exception as e:
+        chat("I am dieing. Please tell M4. :(")
 
 
 def main_loop():
