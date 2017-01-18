@@ -1,3 +1,4 @@
+#!/home/malachitemiller/opt/python-3.5.0/bin/python3
 import re
 from time import sleep, localtime
 from config import CHAT_MSG, RATE, TESTING
