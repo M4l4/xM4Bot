@@ -39,6 +39,8 @@ def process_message(user, msg):
     if user == "cancerious_teeto" and msg.startswith("!gamble "):
         f.teeto()
         chatted = True
+    if user == "xm4l4x" and msg == "!die":
+        raise SystemExit
     return chatted
 
 
@@ -51,7 +53,6 @@ def main_loop():
         else:
             username = re.search(r"\w+", response).group(0)
             message = CHAT_MSG.sub("", response).rstrip()
-            print("[{0[3]}:{0[4]}] {1}: {2}".format(localtime(), username, message))
             chatted = process_message(username, message)
         if chatted:
             sleep(1 / RATE)

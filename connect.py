@@ -9,5 +9,6 @@ try:
     s.send("JOIN #{}\r\n".format(CHAN).encode("utf-8"))
     connected = True
 except Exception as e:
-    print(str(e))
+    from chat_actions import chat
+    chat("I am dieing. Please tell M4. :(")
     connected = False
