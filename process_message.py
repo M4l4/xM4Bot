@@ -42,7 +42,7 @@ def process_message(user, msg):
             f.teeto()
             chatted = True
         if user == "xm4l4x" and msg == "!die":
-            raise SystemExit
+            raise Exception
         return chatted
     except Exception as e:
         chat("I am dieing. Please tell M4. :(")
@@ -64,7 +64,7 @@ def main_loop():
             if chatted:
                 sleep(1 / RATE)
         else:
-            raise SystemExit
+            raise Exception
     except Exception as e:
         chat("I am dieing. Please tell M4. :(")
 
