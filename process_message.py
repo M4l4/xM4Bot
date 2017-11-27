@@ -17,7 +17,7 @@ def process_message(user, msg):
             f.uptime()
             chatted = True
         if msg.startswith(("!k", "!d", "!a")):
-            f.assist(msg[1], msg[2:])
+            f.assist(msg[1], msg[3:])
             chatted = True
         if msg.endswith("and now has 0 pandapoints"):
             f.no_points()
@@ -45,7 +45,7 @@ def process_message(user, msg):
             chatted = True
         return chatted
     except Exception as e:
-        chat("I am dieing. Please tell M4. :(")
+        chat("I am dying. Please tell M4. :(")
         chat("Details: " + str(e))
         raise SystemExit
 
@@ -68,7 +68,7 @@ def main_loop():
         else:
             raise Exception
     except Exception as e:
-        chat("I am dieing. Please tell M4. :(")
+        chat("I am dying. Please tell M4. :(")
         chat("Details: " + str(e))
         raise SystemExit
 
