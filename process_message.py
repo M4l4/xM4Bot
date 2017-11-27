@@ -11,11 +11,13 @@ import functions as f
 def process_message(user, msg):
     try:
         chatted = False
+        if user == "xm4l4x" and msg == "!die":
+            raise Exception
         if msg == "!up":
             f.uptime()
             chatted = True
-        if msg.startswith("!a "):
-            f.assist(msg[3:])
+        if msg.startswith(("!k", "!d", "!a")):
+            f.assist(msg[1], msg[2:])
             chatted = True
         if msg.endswith("and now has 0 pandapoints"):
             f.no_points()
@@ -41,11 +43,10 @@ def process_message(user, msg):
         if user == "cancerious_teeto" and msg.startswith("!gamble "):
             f.teeto()
             chatted = True
-        if user == "xm4l4x" and msg == "!die":
-            raise Exception
         return chatted
     except Exception as e:
         chat("I am dieing. Please tell M4. :(")
+        chat("Details: " + str(e))
         raise SystemExit
 
 
@@ -68,7 +69,9 @@ def main_loop():
             raise Exception
     except Exception as e:
         chat("I am dieing. Please tell M4. :(")
+        chat("Details: " + str(e))
         raise SystemExit
+
 
 if __name__ == "__main__":
     main_loop()
